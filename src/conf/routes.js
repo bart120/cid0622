@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from '../components/pages/HomePage.vue';
-import CarAddPage from '../components/pages/cars/CarAddPage.vue';
-import CarListPage from '../components/pages/cars/CarListPage.vue';
+
+//import CarAddPage from '../components/pages/cars/CarAddPage.vue';
+const CarAddPage = () => import('../components/pages/cars/CarAddPage.vue');
+//import CarListPage from '../components/pages/cars/CarListPage.vue';
+const CarListPage = () => import('../components/pages/cars/CarListPage.vue');
 
 const routes = [
     { path: '/', component: HomePage },

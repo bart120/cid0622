@@ -28,6 +28,8 @@ import Menubar from 'primevue/menubar';
 
 <template>
     <nav>
-        <Menubar :model="items"></Menubar>
+        <Menubar :model="items">
+           
+        </Menubar>
     </nav>
 </template>
