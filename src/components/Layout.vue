@@ -4,4 +4,6 @@
 
 <template>
     <Nav />
+    <router-view></router-view>
+    <footer></footer>
 </template>

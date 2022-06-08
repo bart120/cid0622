@@ -5,14 +5,29 @@ import Menubar from 'primevue/menubar';
 <script>
     export default{
         data(){
-            return {toto:'test'};
+            return {
+                items: [
+                    {
+                        label: 'Accueil',
+                        icon: 'pi pi-fw pi-file',
+                        to: '/'
+                    },
+                    {
+                        label: 'Voiture',
+                        icon: 'pi pi-fw pi-file',
+                        items: [
+                            { label: 'Ajouter', to: '/cars/add' },
+                            { label: 'Lister', to: '/cars/list'}
+                        ]
+                    }
+                ]
+            };
         }
-    }
+    }    
 </script>
 
 <template>
-    {{toto}}
     <nav>
-        <Menubar></Menubar>
+        <Menubar :model="items"></Menubar>
     </nav>
 </template>
