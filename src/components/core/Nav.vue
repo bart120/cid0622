@@ -29,7 +29,9 @@ import Menubar from 'primevue/menubar';
 <template>
     <nav>
         <Menubar :model="items">
-           
+           <template #end>
+               <router-link :to="{name:'loginRoute'}">Se connecter</router-link>
+           </template>
         </Menubar>
     </nav>
 </template>
