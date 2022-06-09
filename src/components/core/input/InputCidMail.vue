@@ -12,11 +12,14 @@
             value(newVal, oldVal){
                 if(regMail.test(newVal)){
                     this.valid = true;
+                    this.$emit('statusChange', true);
                     return;
                 }
                 this.valid = false;
+                this.$emit('statusChange', false);
             }
-        }
+        },
+        emits:['statusChange']
     }
 
 </script>

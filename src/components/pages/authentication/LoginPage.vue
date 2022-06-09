@@ -9,12 +9,16 @@
 <script>
     export default{
         data(){
-            return{ user:{login:'', password: ''}};
+            return{ user:{login:'', password: ''}, valid:false};
         },
         methods:{
             submit(/*event*/){
                 //event.preventDefault();
                 console.log(this.user);
+            },
+            statusChange(state){
+                //console.log('state', state);
+                this.valid = state;
             }
         }
     }
@@ -25,14 +29,14 @@
     <form @submit.prevent="submit" novalidate>
         <div>
             
-            <input-cid-mail v-model="user.login" label="Login"/>
+            <input-cid-mail @statusChange="statusChange" v-model="user.login" label="Login"/>
            
         </div>
         <div>
            <InputCid pause="dans 5 min" type="password" v-model="user.password" label="Mot de passe" />
         </div>
         <div>
-            <Button type="submit">Connexion</Button>
+            <Button type="submit" :disabled="!this.valid">Connexion</Button>
         </div>
     </form>
 </template>
