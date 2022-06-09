@@ -3,6 +3,7 @@
     import InputText from 'primevue/inputtext';
     import Password from 'primevue/password';
     import InputCid from '../../core/input/InputCid.vue';
+    import InputCidMail from '../../core/input/InputCidMail.vue';
 </script>
 
 <script>
@@ -24,7 +25,7 @@
     <form @submit.prevent="submit" novalidate>
         <div>
             
-            <input-cid v-model="user.login" label="Login"/>
+            <input-cid-mail v-model="user.login" label="Login"/>
            
         </div>
         <div>
