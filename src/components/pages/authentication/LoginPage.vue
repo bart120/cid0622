@@ -2,12 +2,19 @@
     import Button from 'primevue/button';
     import InputText from 'primevue/inputtext';
     import Password from 'primevue/password';
+import { useUserStore } from '../../../store/userStore';
     import InputCid from '../../core/input/InputCid.vue';
     import InputCidMail from '../../core/input/InputCidMail.vue';
+
+    const {login} = useUserStore();
 </script>
 
 <script>
     export default{
+        /*setup(){
+            const store = useUserStore();
+            return { login = store.login };   
+        },*/
         data(){
             return{ user:{login:'', password: ''}, valid:false};
         },
@@ -15,6 +22,7 @@
             submit(/*event*/){
                 //event.preventDefault();
                 console.log(this.user);
+                this.login(this.user.login, this.user.password);
             },
             statusChange(state){
                 //console.log('state', state);

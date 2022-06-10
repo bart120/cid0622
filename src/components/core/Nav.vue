@@ -1,10 +1,18 @@
 <script setup>
+import { storeToRefs } from 'pinia';
 import Menubar from 'primevue/menubar';
+import { useUserStore } from '../../store/userStore';
+
+const {isConnected, user} = storeToRefs(useUserStore());
 </script>
 
 <script>
     export default{
-        data(){
+        /*setup(){
+            const store = useUserStore();
+            return { isConnected: store.isConnected, user: store.user };
+        },*/
+        data(){            
             return {
                 items: [
                     {
@@ -29,9 +37,14 @@ import Menubar from 'primevue/menubar';
 <template>
     <nav>
         <Menubar :model="items">
-           <template #end>
-               <router-link :to="{name:'loginRoute'}">Se connecter</router-link>
-           </template>
+            <template #end>
+                <div v-if="! this.isConnected">
+                    <router-link :to="{name:'loginRoute'}">Se connecter</router-link>
+                </div>
+                <div v-else>
+                    Bonjour {{this.user.name}}
+                </div>
+            </template>
         </Menubar>
     </nav>
 </template>
